@@ -62,6 +62,6 @@ if __name__ == '__main__':
                        rasathane_elazig), "rasathane_elazig.npy")
     printCase(saveDataRasathane("EarthQuakeDatas/rasathane_biggerThan4.npy",
                        rasathane_biggerThan4), "rasathane_biggerThan4.npy")
-    print(rasathane_biggerThan4)
+
     print("Finishing Parsing")
     # time.sleep(3)
