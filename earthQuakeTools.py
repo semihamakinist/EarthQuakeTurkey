@@ -16,10 +16,12 @@ def readData(file_path):
             file_data = np.load(fp)
             fp.close()
     return file_data.tolist()
+    # return file_data
 
 
 def saveDataRasathane(file_path, file_datas):
     try:
+        print(len(file_datas))
         if len(file_datas) > 0:
             with open(file_path, "wb") as fp:
                 file_data_np = np.array(file_datas)
@@ -30,7 +32,8 @@ def saveDataRasathane(file_path, file_datas):
                 np.save(fp, file_data_np)
                 fp.close()
         return True
-    except Exception:
+    except Exception as ex:
+        print("error: ", ex)
         return False
 
 
