@@ -21,7 +21,6 @@ def readData(file_path):
 
 def saveDataRasathane(file_path, file_datas):
     try:
-        print(len(file_datas))
         if len(file_datas) > 0:
             with open(file_path, "wb") as fp:
                 file_data_np = np.array(file_datas)
