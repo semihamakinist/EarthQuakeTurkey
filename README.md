@@ -6,7 +6,7 @@
 ### Technologies Used in the Program 
 * Python - 3.6.10
 * requests - 2.24.0
-* numpy 1.16.6
+* numpy - 1.16.6
 * bs4 (BeautifulSoup) - 4.9.1
 
 ### Running The Programs
