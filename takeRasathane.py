@@ -27,7 +27,7 @@ if __name__ == '__main__':
         # remove emty item
         # row_data = [item for item in row_data if item]
         if len(row_data) > 9:
-            row_data[8] = "-".join("-".join(row_data[8:len(row_data)]))
+            row_data[8] = "-".join(row_data[8:len(row_data)])
             for item in row_data[9:len(row_data)]:
                 row_data.remove(item)
 
