@@ -16,17 +16,18 @@ def readData(file_path):
             file_data = np.load(fp)
             fp.close()
     return file_data.tolist()
-    # return file_data
 
 
-def saveDataRasathane(file_path, file_datas):
+def saveDataRasathane(file_path, file_datas, mode=2):
     try:
+        # print(file_datas)
         if len(file_datas) > 0:
             with open(file_path, "wb") as fp:
                 file_data_np = np.array(file_datas)
-                # sort data by time and date
-                file_data_np = file_data_np[file_data_np[:, 1].argsort()]  # sort by hours
-                file_data_np = file_data_np[file_data_np[:, 0].argsort(kind='mergesort')]  # sort by date
+                n = mode-1
+                file_data_np = file_data_np[file_data_np[:, n].argsort()]  # sort by hours
+                if mode == 2:
+                    file_data_np = file_data_np[file_data_np[:, n-1].argsort(kind='mergesort')]  # sort by date
                 # print("file_path: ", file_path, "file_data_np: ", file_data_np)
                 np.save(fp, file_data_np)
                 fp.close()

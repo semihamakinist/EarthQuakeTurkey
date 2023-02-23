@@ -26,7 +26,7 @@ if __name__ == '__main__':
         row_data = [elem for elem in row_data if elem is not '']
         # remove emty item
         # row_data = [item for item in row_data if item]
-        if len(row_data) > 9:
+        if (len(row_data) > 9) and (float(row_data[6]) >= 4.0):
             row_data[8] = "-".join(row_data[8:len(row_data)])
             for item in row_data[9:len(row_data)]:
                 row_data.remove(item)
@@ -36,19 +36,16 @@ if __name__ == '__main__':
             if float(row_data[6]) >= 4.0:
                 # Adding just the list of earthquakes' intensity of more than 4 in Turkey
                 if row_data not in rasathane_biggerThan4:
-                    # np.append(rasathane_biggerThan4, [row_data], axis=0)
                     rasathane_biggerThan4.append(row_data)
 
                 # Adding just the list of earthquakes' intensity of more than 4 in Malatya
                 if "MALATYA" in row_data[8]:
                     if row_data not in rasathane_malatya:
-                        # np.append(rasathane_malatya, [row_data], axis=0)
                         rasathane_malatya.append(row_data)
 
                 # Adding just the list of earthquakes' intensity of more than 4 in Elazig
                 elif "ELAZIG" in row_data[8]:
                     if row_data not in rasathane_elazig:
-                        # np.append(rasathane_elazig, [row_data], axis=0)
                         rasathane_elazig.append(row_data)
         else:
             print("index_size: ", len(pre_texts),
