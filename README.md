@@ -8,8 +8,10 @@
 * requests - 2.24.0
 * numpy - 1.16.6
 * bs4 (BeautifulSoup) - 4.9.1
+* selenium - 3.141.0
 
 ### Running The Programs
 * python takeAfadEarthquake.py
 * python takeRasathane.py
+* python takeEarthquakeUSGS.py
 * Adding tasks to run them hourly in the System (cronjob)
