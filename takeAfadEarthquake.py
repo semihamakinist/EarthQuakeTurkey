@@ -46,11 +46,11 @@ if __name__ == '__main__':
             print("row_size: ", len(row_data), "- error_data: ", row_data)
 
     # saving new data after data changed
-    # printCase(saveDataRasathane("EarthQuakeDatas/afad_malatya.npy",
-    #                    afad_malatya), "afad_malatya.npy")
-    # printCase(saveDataRasathane("EarthQuakeDatas/afad_elazig.npy",
-    #                    afad_elazig), "afad_elazig.npy")
-    # printCase(saveDataRasathane("EarthQuakeDatas/afad_biggerThan4.npy",
-    #                    afad_biggerThan4), "afad_biggerThan4.npy")
+    printCase(saveDataRasathane("EarthQuakeDatas/afad_malatya.npy",
+                       afad_malatya), "afad_malatya.npy")
+    printCase(saveDataRasathane("EarthQuakeDatas/afad_elazig.npy",
+                       afad_elazig), "afad_elazig.npy")
+    printCase(saveDataRasathane("EarthQuakeDatas/afad_biggerThan4.npy",
+                       afad_biggerThan4), "afad_biggerThan4.npy")
 
     print("Finishing Parsing")
