@@ -20,16 +20,16 @@ if __name__ == '__main__':
     pre_texts = pre_attr.text.split("\r\n")
     print(type(rasathane_biggerThan4))
     for i in range(7, len(pre_texts)):
+        # .split(" ")
         row_data = pre_texts[i].replace("İlksel", "") \
             .replace(" (", "-(") \
-            .split(" ")
-        row_data = [elem for elem in row_data if elem is not '']
-        # remove emty item
-        # row_data = [item for item in row_data if item]
+            .split()
+        # .split()  # parsing the string and removing the empty items in the string
         if (len(row_data) > 9) and (float(row_data[6]) >= 4.0):
             row_data[8] = "-".join(row_data[8:len(row_data)])
-            for item in row_data[9:len(row_data)]:
-                row_data.remove(item)
+            [row_data.remove(item) for item in row_data[9:len(row_data)]]
+            # for item in row_data[9:len(row_data)]:
+            #     row_data.remove(item)
 
         if len(row_data) >= 9:
             # Taking if the intensity of more than 4 of the earthquake
