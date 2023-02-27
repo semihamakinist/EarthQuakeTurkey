@@ -1,8 +1,4 @@
 # import argparse
-import numpy as np
-from dlib import range
-from tensorboard.compat.tensorflow_stub.errors import raise_exception_on_not_ok_status
-
 from earthQuakeTools import *
 
 
@@ -54,11 +50,14 @@ if __name__ == '__main__':
 
     # saving new data after data changed
     printCase(saveDataRasathane("EarthQuakeDatas/rasathane_malatya.npy",
-                       rasathane_malatya), "rasathane_malatya.npy")
+                       rasathane_malatya),
+              f"Data_Sayısı: {len(rasathane_malatya)} - rasathane_malatya.npy")
     printCase(saveDataRasathane("EarthQuakeDatas/rasathane_elazig.npy",
-                       rasathane_elazig), "rasathane_elazig.npy")
+                       rasathane_elazig),
+              f"Data_Sayısı: {len(rasathane_elazig)} - rasathane_elazig.npy")
     printCase(saveDataRasathane("EarthQuakeDatas/rasathane_biggerThan4.npy",
-                       rasathane_biggerThan4), "rasathane_biggerThan4.npy")
+                       rasathane_biggerThan4),
+              f"Data_Sayısı: {len(rasathane_biggerThan4)} - rasathane_biggerThan4.npy")
 
     print("Finishing Parsing")
     # time.sleep(3)

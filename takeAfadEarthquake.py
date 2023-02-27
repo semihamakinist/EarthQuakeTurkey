@@ -47,10 +47,13 @@ if __name__ == '__main__':
 
     # saving new data after data changed
     printCase(saveDataRasathane("EarthQuakeDatas/afad_malatya.npy",
-                       afad_malatya), "afad_malatya.npy")
+                       afad_malatya),
+              f"Data_Sayısı: {len(afad_malatya)} - afad_malatya.npy")
     printCase(saveDataRasathane("EarthQuakeDatas/afad_elazig.npy",
-                       afad_elazig), "afad_elazig.npy")
+                       afad_elazig),
+              f"Data_Sayısı: {len(afad_elazig)} - afad_elazig.npy")
     printCase(saveDataRasathane("EarthQuakeDatas/afad_biggerThan4.npy",
-                       afad_biggerThan4), "afad_biggerThan4.npy")
+                       afad_biggerThan4),
+              f"Data_Sayısı: {len(afad_biggerThan4)} - afad_biggerThan4.npy")
 
     print("Finishing Parsing")

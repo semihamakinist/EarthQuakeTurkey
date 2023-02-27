@@ -3,8 +3,13 @@ from selenium import webdriver
 from earthQuakeTools import *
 
 if __name__ == '__main__':
+    usgs_turkey = readData("EarthQuakeDatas/usgs_turkey.npy")
+    usgs_allWord = readData("EarthQuakeDatas/usgs_allWord.npy")
+
     driver = webdriver.Chrome('chromedriver_win32/chromedriver.exe')
-    driver.get("https://earthquake.usgs.gov/earthquakes/map/?extent=-87.28641,-121.64063&extent=87.28641,225.70313&sort=largest&map=false")
+    # &map=false&sort=largest
+    url = "https://earthquake.usgs.gov/earthquakes/map/?extent=-87.28641,-121.64063&extent=87.28641,225.70313&map=false"
+    driver.get(url)
     page_source = driver.page_source
     time.sleep(3)
     driver.quit()
@@ -13,9 +18,6 @@ if __name__ == '__main__':
 
     usgs_events_list = soup.find("usgs-events-list")
     mat_list_items = usgs_events_list.find_all("mat-list-item")
-
-    usgs_turkey = readData("EarthQuakeDatas/usgs_turkey.npy")
-    usgs_allWord = readData("EarthQuakeDatas/usgs_allWord.npy")
 
     for item in mat_list_items:
         div_callout = item.find("usgs-event-item-detail").find("div", attrs={'class': "callout"})
@@ -27,12 +29,15 @@ if __name__ == '__main__':
                         div_details.find("h6").text,
                         div_callout.find("span").text]
 
-            if 'turkey' in div_details.find("h6").text.lower():
+            if ('turkey' in div_details.find("h6").text.lower()) and (row_data not in usgs_turkey):
                 usgs_turkey.append(row_data)
-
-            usgs_allWord.append(row_data)
+            if row_data not in usgs_allWord:
+                usgs_allWord.append(row_data)
 
     printCase(saveDataRasathane("EarthQuakeDatas/usgs_turkey.npy",
-                                usgs_turkey, mode=1), "usgs_turkey.npy")
+                                usgs_turkey, mode=1),
+              f"Data_Sayısı: {len(usgs_turkey)} - usgs_turkey.npy")
     printCase(saveDataRasathane("EarthQuakeDatas/usgs_allWord.npy",
-                                usgs_allWord, mode=1), "usgs_allWord.npy")
+                                usgs_allWord, mode=1),
+              f"Data_Sayısı: {len(usgs_allWord)} - usgs_allWord.npy")
+    time.sleep(3)
